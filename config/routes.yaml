@@ -7,3 +7,7 @@ controllers:
 map:
     path: /map
     controller: App\Controller\conn::index
+
+admin_menu:
+    path: /admin/menu
+    controller: App\Controller\AdminController::admin
