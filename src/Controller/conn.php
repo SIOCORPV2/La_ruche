@@ -14,7 +14,7 @@ class conn extends AbstractController
             $dbh = new \PDO('mysql:host=localhost;dbname=sophiane', $user, $pass);
             $dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
-            $stmt = $dbh->query('SELECT * FROM markers');
+            $stmt = $dbh->query('SELECT * FROM marker');
             $markerData = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             return $markerData;
