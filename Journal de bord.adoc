@@ -30,6 +30,20 @@ Ajout d'une entité admin ainsi que d'un formulaire de connexion et d'inscriptio
 Ajoute du package web-encore et scss permettant un affichage dynamique de la page web qui, lors de l'installation du site va regrouper tous les fichiers css créer en un seul afin de limiter l'utilisation des ressources du serveur
 
 == Jour 3 (24/01/24)
+
+=== Création de marker
+
+image::image/Marker Create.png[]
+
+Choix de la position des marqueurs avec 2 slider. +
+Prévisualisation en direct sur la gauche en javascript. +
+Sécurisation des champs pour empécher les injections sql (faille permettant de lire, modifié, supprimer des informations dans une base de donnée à partir d'un formulaire). +
+
+=== Formulaire
+
+Le formulaire necessite un id de région qui le liera à celle-ci, impossible de rentrer autre chose que 1, 2 ou 3 comme expliquer dans les parenthèses au-dessus du champ. +
+Il faut renseigner le nom de la ville  et aussi l'url de renvoie lors d'un clique sur le marqueur. (champ url temporaire, il sera enlever lors de la création automatique des pages d'événements)
+
 == Jour 4 (25/01/24)
 == Jour 5 (26/01/24)
 

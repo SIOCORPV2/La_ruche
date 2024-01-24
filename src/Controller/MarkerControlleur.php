@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,7 +22,7 @@ class MarkerControlleur extends AbstractController
         $this->entityManager = $entityManager;
     }
     #[Route(path: '/admin/marker/create', name: 'marker_create')]
-    public function create():Response{
+    public function create(Request $request):Response{
 
         $marker = new Marker();
 
@@ -30,10 +31,10 @@ class MarkerControlleur extends AbstractController
                 'attr' => ['class' => 'form-input']
             ])
             ->add('x_coord', HiddenType::class, [
-                'attr' => ['id' => 'X_sliderValue', 'class' => 'form-input']
+                'attr' => ['id' => 'X_sliderValue', 'class' => 'form-input', 'value' => 0]
             ])
             ->add('y_coord', HiddenType::class, [
-                'attr' => ['id' => 'Y_sliderValue', 'class' => 'form-input']
+                'attr' => ['id' => 'Y_sliderValue', 'class' => 'form-input', 'value' => 0]
             ])
             ->add('name', TextType::class, [
                 'attr' => ['class' => 'form-input']
@@ -47,22 +48,26 @@ class MarkerControlleur extends AbstractController
             ])
             ->getForm();
 
+        $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $formData = $form->getData();
+            // Set entity properties with form data
+            $marker = $form->getData();
 
             try {
-                // Utilisez $this->entityManager pour persister et flush
-                $this->entityManager->persist($formData);
+                // Persist and flush the entity
+                $this->entityManager->persist($marker);
                 $this->entityManager->flush();
 
-                // Ajoutez un message flash de succès
-                $this->addFlash('success', 'Marker ajouté avec succès !');
+                // Add a success flash message
+                $this->addFlash('success', 'Marker added successfully!');
 
                 return $this->redirectToRoute('marker_create');
             } catch (\Exception $e) {
-                // En cas d'erreur, ajoutez un message flash de type 'danger'
-                $this->addFlash('danger', 'Erreur lors de l\'ajout du Marker : ' . $e->getMessage());
+                // In case of an error, add a danger flash message
+                $this->addFlash('danger', 'Error adding Marker: ' . $e->getMessage());
             }
+
         }
 
         //il faut retourner cette page
