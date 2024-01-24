@@ -5,6 +5,10 @@ namespace App\Entity;
 use App\Repository\MarkerRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="marker")
+ */
 #[ORM\Entity(repositoryClass: MarkerRepository::class)]
 class Marker
 {
