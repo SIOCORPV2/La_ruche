@@ -32,3 +32,4 @@ fetch('/js/conn.php')
         });
     })
     .catch(error => console.error('Error fetching marker data:', error));
+

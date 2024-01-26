@@ -17,7 +17,7 @@
 
             </svg>
             <div class="marker-container">
-                <a id="exampleInput" class="Marker" style="margin-left: 0; position: absolute; top: 0;">
+                <a id="exampleInput" class="Marker" style="left: 50%; position: absolute; top: 50%;">
                     <img class="Marker" src="{{ asset('images/pin.png') }}" alt="Pin Image">
                 </a>
             </div>
@@ -25,21 +25,21 @@
 
     </div>
     <div class="slider-container">
-        <input type="range" min="0" max="90" value="0" class="slider" id="X_Slider">
-        <p>Postion X: <span id="X_sliderValue">0</span></p>
+        <input type="range" min="0" max="90" value="50" class="slider" id="X_Slider">
+        <p>Postion X: <span id="X_sliderValue">50</span></p>
     </div>
 
     <div class="slider-container">
-        <input type="range" min="0" max="90" value="0" class="slider" id="Y_Slider">
-        <p>Postion Y: <span id="Y_sliderValue">0</span></p>
+        <input type="range" min="0" max="90" value="50" class="slider" id="Y_Slider">
+        <p>Postion Y: <span id="Y_sliderValue">50</span></p>
     </div>
 
-    {% for message in app.flashes('success') %}
+    {% for message in app.flashes('successCreate') %}
         <div class="alert alert-success">
             {{ message }}
         </div>
     {% endfor %}
-    {% for message in app.flashes('danger') %}
+    {% for message in app.flashes('dangerCreate') %}
         <div class="alert alert-success">
             {{ message }}
         </div>

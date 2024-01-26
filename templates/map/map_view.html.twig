@@ -28,20 +28,55 @@
                         {# Assuming (0,0) is at the top left, adjust yCoord for the top position #}
                         {% set marginLeft = xCoord ~ '%' %}
                         {% set topPosition = yCoord ~ '%' %}
+                        {% set popupTopPosition = yCoord - 5 %}
+                        {% set popupMarginLeft = xCoord + 5 %}
 
-                        <a class="Marker" href="{{ url }}" style="margin-left: {{ marginLeft }}; position: absolute; top: {{ topPosition }};">
+
+                        <a class="Marker" href="{{ url }}" style="margin-left: {{ marginLeft }}; position: absolute; top: {{ topPosition }};"
+                           onmouseover="showPopup('{{ name }}', {{ id }})" onmouseout="hidePopup({{ id }})">
+
                             <img class="Marker" src="{{ asset('images/pin.png') }}" alt="Pin Image">
                         </a>
+                        <div class="Marker_popup" id="popup_{{ id }}" style="margin-left: {{ popupMarginLeft ~ '%' }}; position: absolute; top: {{ popupTopPosition ~ '%' }};"></div>
                     {% endfor %}
                 </div>
             {% endif %}
 
 
-
-
-
         </div>
-
     </div>
+
+
+
+    <script>
+        function showPopup(name, id) {
+            try {
+                const popup = document.getElementById('popup_' + id);
+                if (popup) {
+                    popup.innerHTML = name;
+                    popup.style.display = 'block';
+                } else {
+                    console.error('Popup element not found.');
+                }
+            } catch (error) {
+                console.error('Error in showPopup:', error);
+            }
+        }
+
+        function hidePopup(id) {
+            try {
+                const popup = document.getElementById('popup_' + id);
+                if (popup) {
+                    popup.style.display = 'none';
+                } else {
+                    console.error('Popup element not found.');
+                }
+            } catch (error) {
+                console.error('Error in hidePopup:', error);
+            }
+        }
+
+    </script>
+
 
 {% endblock body %}

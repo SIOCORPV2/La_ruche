@@ -44,7 +44,16 @@ Sécurisation des champs pour empécher les injections sql (faille permettant de
 Le formulaire necessite un id de région qui le liera à celle-ci, impossible de rentrer autre chose que 1, 2 ou 3 comme expliquer dans les parenthèses au-dessus du champ. +
 Il faut renseigner le nom de la ville  et aussi l'url de renvoie lors d'un clique sur le marqueur. (champ url temporaire, il sera enlever lors de la création automatique des pages d'événements)
 
+=== Popup
+
+Maintenant quand on passe sa souris sur l'une des villes sont nom s'affichent
+
 == Jour 4 (25/01/24)
+
+=== Modification d'un marqueur
+
+Contient deux formulaires, le premier permet de selectionner la ville à modifier. Une fois celle-ci choisis, un deuxième formulaire s'affiche, c'est le meme que pour la création d'un marqueur, mais il est préremplis avec les informations correspondantes
+
 == Jour 5 (26/01/24)
 
 == Jour 6 (29/01/24)

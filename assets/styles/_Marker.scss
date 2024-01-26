@@ -1,9 +1,17 @@
-.Marker{
-  width: 20%;
-  &_title{
-    margin: 20px;
-    font-size: 30px;
-    text-align: center;
+  .Marker{
+    width: 5%;
+    &_title{
+      margin: 20px;
+      font-size: 30px;
+      text-align: center;
+    }
+
+  & img{
+    width: 100%;
+  }
+
+  &_popup{
+
   }
 }
 
