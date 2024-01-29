@@ -136,6 +136,13 @@ class MarkerControlleur extends AbstractController
         return $this->render('admin/marker/marker_delete.html.twig', ['markers' => $markers, 'form' => $form->createView()]);
     }
 
+    #[Route(path: '/admin/marker', name: 'marker_menu')]
+    public function admin():Response{
+        //il faut retourner cette page
+        return $this->render('admin/marker/marker_menu.html.twig');
+    }
+
+
     #[Route(path: '/admin/marker/update', name: 'marker_update')]
     public function update(Request $request):Response{
 

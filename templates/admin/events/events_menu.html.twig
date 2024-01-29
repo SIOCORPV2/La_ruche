@@ -1,0 +1,11 @@
+{% block title %}Events Menu{% endblock %}
+{% extends "base.html.twig" %}
+
+{% block body %}
+    Menu Admin
+
+    <a type="button" href="{{ path('events_create') }}">Créer un nouveau event</a>
+    <a type="button" href="{{ path('events_delete') }}">Supprimer un event</a>
+    <a type="button" href="{{ path('events_update') }}">Modifier un event</a>
+
+{% endblock body %}

@@ -1,0 +1,11 @@
+{% block title %}Marker Menu{% endblock %}
+{% extends "base.html.twig" %}
+
+{% block body %}
+    Menu Admin
+
+    <a type="button" href="{{ path('marker_create') }}">Créer un nouveau marqueur</a>
+    <a type="button" href="{{ path('marker_delete') }}">Supprimer un marqueur</a>
+    <a type="button" href="{{ path('marker_update') }}">Modifier un marqueur</a>
+
+{% endblock body %}
