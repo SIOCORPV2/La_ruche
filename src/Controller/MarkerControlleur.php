@@ -204,6 +204,25 @@ class MarkerControlleur extends AbstractController
 
                 $formUpdate->handleRequest($request);
 
+                if ($formUpdate->isSubmitted() && $formUpdate->isValid()) {
+                    $existingMarker = $this->entityManager->getRepository(Marker::class)->findOneBy(['name' => $formUpdate->get('name')->getData()]);
+
+                    if ($existingMarker) {
+                        try {
+                            // Update the existing entity with form values
+                            $existingMarker->setRegionId($formUpdate->get('region_id')->getData());
+                            $existingMarker->setXCoord($formUpdate->get('x_coord')->getData());
+                            $existingMarker->setYCoord($formUpdate->get('y_coord')->getData());
+                            $existingMarker->setUrl($formUpdate->get('url')->getData());
+
+                            // Persist changes to the database
+                            $this->entityManager->flush();
+                        } catch (\Exception $e) {
+                            // In case of an error, add a danger flash message
+                            $this->addFlash('dangerDelete', 'Error deleting Marker: ' . $e->getMessage());
+                        }
+                    }
+                }
 
                 return $this->render('admin/marker/marker_update.html.twig', ['formUpdate' => $formUpdate->createView(), 'markers' => $markersInfo, 'form' => $form->createView(),'markerChosen' => $markerChosen]);
             }
