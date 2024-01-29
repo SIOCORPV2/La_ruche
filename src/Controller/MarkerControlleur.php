@@ -210,10 +210,13 @@ class MarkerControlleur extends AbstractController
                     if ($existingMarker) {
                         try {
                             // Update the existing entity with form values
-                            $existingMarker->setRegionId($formUpdate->get('region_id')->getData());
-                            $existingMarker->setXCoord($formUpdate->get('x_coord')->getData());
-                            $existingMarker->setYCoord($formUpdate->get('y_coord')->getData());
-                            $existingMarker->setUrl($formUpdate->get('url')->getData());
+                            if($formUpdate->get('x_coord') === null){
+
+                                $existingMarker->setRegionId($formUpdate->get('region_id')->getData());
+                                $existingMarker->setXCoord($formUpdate->get('x_coord')->getData());
+                                $existingMarker->setYCoord($formUpdate->get('y_coord')->getData());
+                                $existingMarker->setUrl($formUpdate->get('url')->getData());
+                            }
 
                             // Persist changes to the database
                             $this->entityManager->flush();

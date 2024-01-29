@@ -32,6 +32,9 @@ class Marker
     #[ORM\Column(length: 255)]
     private ?string $url = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $idEvent = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +96,18 @@ class Marker
     public function setUrl(string $url): static
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function getIdEvent(): ?int
+    {
+        return $this->idEvent;
+    }
+
+    public function setIdEvent(?int $idEvent): static
+    {
+        $this->idEvent = $idEvent;
 
         return $this;
     }
