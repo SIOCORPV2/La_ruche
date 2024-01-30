@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+entity Marker {
+    private ?int $id;
+    private ?int $region_id;
+    private ?int $x_coord;
+    private ?int $y_coord;
+    private ?string $name;
+    private ?string $url;
+    private array $idEvent;
+    + getter()
+    + setter()
+}
+
+entity Event {
+    private ?int $id;
+    private ?int $id_region;
+    private ?string $title;
+    private ?string $description;
+    + getter()
+    + setter()
+}
+
+Event "0..*" *--* "1" Marker : Event.id = Marker.idEvent
+
+@enduml

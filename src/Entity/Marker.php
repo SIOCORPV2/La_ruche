@@ -20,10 +20,10 @@ class Marker
     #[ORM\Column(nullable: true)]
     private ?int $region_id = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $x_coord = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $y_coord = null;
 
     #[ORM\Column(length: 255)]
@@ -32,8 +32,8 @@ class Marker
     #[ORM\Column(length: 255)]
     private ?string $url = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $idEvent = null;
+    #[ORM\Column(nullable: false)]
+    private array $idEvent = [""];
 
     public function getId(): ?int
     {
@@ -57,7 +57,7 @@ class Marker
         return $this->x_coord;
     }
 
-    public function setXCoord(int $x_coord): static
+    public function setXCoord(?int $x_coord): static
     {
         $this->x_coord = $x_coord;
 
@@ -69,7 +69,7 @@ class Marker
         return $this->y_coord;
     }
 
-    public function setYCoord(int $y_coord): static
+    public function setYCoord(?int $y_coord): static
     {
         $this->y_coord = $y_coord;
 
@@ -93,19 +93,20 @@ class Marker
         return $this->url;
     }
 
-    public function setUrl(string $url): static
+    public function setUrl(?string $url): static
     {
         $this->url = $url;
 
         return $this;
     }
 
-    public function getIdEvent(): ?int
+    public function getIdEvent(): ?array
     {
         return $this->idEvent;
     }
 
-    public function setIdEvent(?int $idEvent): static
+
+    public function setIdEvent(array $idEvent): static
     {
         $this->idEvent = $idEvent;
 

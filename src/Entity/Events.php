@@ -13,14 +13,9 @@ class Events
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
 
     #[ORM\Column]
     private ?int $id_region = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?int $id_marker = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
@@ -33,18 +28,6 @@ class Events
         return $this->id;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
     public function getIdRegion(): ?int
     {
         return $this->id_region;
@@ -53,18 +36,6 @@ class Events
     public function setIdRegion(int $id_region): static
     {
         $this->id_region = $id_region;
-
-        return $this;
-    }
-
-    public function getIdMarker(): ?int
-    {
-        return $this->id_marker;
-    }
-
-    public function setIdMarker(?int $id_marker): static
-    {
-        $this->id_marker = $id_marker;
 
         return $this;
     }
@@ -92,4 +63,6 @@ class Events
 
         return $this;
     }
+
+
 }

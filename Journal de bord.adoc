@@ -56,7 +56,16 @@ Contient deux formulaires, le premier permet de selectionner la ville à modifie
 
 == Jour 5 (26/01/24)
 
+=== Diagrame UML
+
+Création d'un diagram permettant de représenter les associations entre les deux entités Marker et Events qui permettera par la suite de mettre à jour plus facilement la base de donnée mais, sera également utile pour la création d'une clé secondaire contenu dans les deux entités pour les reliées entre elles.
+
+image::image/Diagram UML.png[]
+
 == Jour 6 (29/01/24)
+
+=== Création de l'entité Events
+
 == Jour 7 (30/01/24)
 == Jour 8 (31/01/24)
 == Jour 9 (01/02/24)

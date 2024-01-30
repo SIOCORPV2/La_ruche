@@ -1,0 +1,12 @@
+{% block title %}Event Create{% endblock %}
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <p class="Event_title">Supprimer un Event</p>
+
+
+    {{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_end(form) }}
+
+{% endblock body %}

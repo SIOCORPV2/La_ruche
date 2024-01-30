@@ -17,7 +17,7 @@
 
             </svg>
 
-            {% if markerChosen is defined %}
+            {% if xPos is defined %}
                 <div class="marker-container">
                     <a id="exampleInput" class="Marker" style="margin-left: 0; position: absolute; top: 0;">
                         <img class="Marker" src="{{ asset('images/pin.png') }}" alt="Pin Image">
@@ -39,7 +39,7 @@
                         {% set popupTopPosition = yCoord - 5 %}
                         {% set popupMarginLeft = xCoord + 5 %}
 
-                        {% if markerChosen is not defined %}
+                        {% if xPos is not defined %}
                             <a class="Marker" style="margin-left: {{ marginLeft }}; position: absolute; top: {{ topPosition }};"
                                onmouseover="showPopup('{{ name }}', {{ id }})" onmouseout="hidePopup({{ id }})">
 
@@ -49,15 +49,13 @@
                         {% endif %}
 
 
-                        {% if markerChosen is defined %}
-                            {% if name != markerChosen.name %}
+                        {% if xPos is defined %}
                                 <a class="Marker" style="margin-left: {{ marginLeft }}; position: absolute; top: {{ topPosition }};"
                                    onmouseover="showPopup('{{ name }}', {{ id }})" onmouseout="hidePopup({{ id }})">
 
                                     <img class="Marker" src="{{ asset('images/pin.png') }}" alt="Pin Image">
                                 </a>
                                 <div class="Marker_popup" id="popup_{{ id }}" style="margin-left: {{ popupMarginLeft ~ '%' }}; position: absolute; top: {{ popupTopPosition ~ '%' }};"></div>
-                            {% endif %}
                         {% endif %}
 
                     {% endfor %}
@@ -71,17 +69,17 @@
     {{ form_row(form.submit) }}
     {{ form_end(form) }}
 
-
-    {% if markerChosen is defined %}
+    {% if xPos is defined %}
 
         <div class="slider-container">
-            <input type="range" min="0" max="90" value="{{ markerChosen.xCoord }}" class="slider" id="X_Slider">
-            <p>Postion X: <span id="X_sliderValue">{{ markerChosen.xCoord }}</span></p>
+            <input type="range" min="0" max="90" value="{{ xPos }}" class="slider" id="X_Slider">
+            <p>Postion X: <span id="X_sliderValue">{{ xPos }}</span></p>
+
         </div>
 
         <div class="slider-container">
-            <input type="range" min="0" max="90" value="{{ markerChosen.yCoord }}" class="slider" id="Y_Slider">
-            <p>Postion Y: <span id="Y_sliderValue">{{ markerChosen.yCoord }}</span></p>
+            <input type="range" min="0" max="90" value="{{ yPos }}" class="slider" id="Y_Slider">
+            <p>Postion Y: <span id="Y_sliderValue">{{ yPos }}</span></p>
         </div>
 
         {{ form_start(formUpdate) }}

@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -151,9 +152,7 @@ class MarkerControlleur extends AbstractController
         // Fetch the markers from your connection class (assuming Connection class is used)
         $conn = new conn();
         $markersInfo = $conn->index();
-
         $marker = new Marker();
-
         // Create the form
         $form = $this->createFormBuilder($marker)
             ->add('name', ChoiceType::class, [
@@ -166,75 +165,37 @@ class MarkerControlleur extends AbstractController
                 'attr' => ['class' => 'form-input'],
             ])
             ->getForm();
-
         // Handle form submission
         $form->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             // Get the name from the form
             $name = $form->get('name')->getData();
             // Find the entity by name
-            $repository = $this->entityManager->getRepository(Marker::class);
-            $marker = $repository->findOneBy(['name' => $name]);
+            $marker = $this->entityManager->getRepository(Marker::class)->findOneBy(['name' => $name]);
+            $xPos = $marker->getXCoord();
+            $yPos = $marker->getYCoord();
 
-            $markerChosen = new Marker();
-            $markerChosen->setXCoord($marker->getXCoord());
-            $markerChosen->setYCoord($marker->getYCoord());
-            $markerChosen->setRegionId($marker->getRegionId());
-            $markerChosen->setName($marker->getName());
-            $markerChosen->setUrl($marker->getUrl());
             if($marker){
 
-                $marker = new Marker();
 
                 $formUpdate = $this->createFormBuilder($marker)
-                    ->add('region_id', TextType::class, [
-                        'attr' => ['class' => 'form-input', 'value' => $markerChosen->getRegionId()]
-                    ])
-                    ->add('x_coord', HiddenType::class, [
-                        'attr' => ['id' => 'X_sliderValue', 'class' => 'form-input', 'value' => $markerChosen->getXCoord()]
-                    ])
-                    ->add('y_coord', HiddenType::class, [
-                        'attr' => ['id' => 'Y_sliderValue', 'class' => 'form-input', 'value' => $markerChosen->getYCoord()]
-                    ])
-                    ->add('name', TextType::class, [
-                        'attr' => ['class' => 'form-input', 'value' => $markerChosen->getName()]
-                    ])
-                    ->add('url', TextType::class, [
-                        'attr' => ['class' => 'form-input', 'value' => $markerChosen->getUrl()]
-                    ])
+                    ->add('region_id', TextType::class,['attr' => ['value' => $marker->getRegionId()]])
+                    ->add('x_coord', HiddenType::class,['attr' => ['value' => $marker->getXCoord()]])
+                    ->add('y_coord', HiddenType::class,['attr' => ['value' => $marker->getYCoord()]])
+                    ->add('name', TextType::class,['attr' => ['value' => $marker->getName()]])
+                    ->add('url', TextType::class,['attr' => ['value' => $marker->getUrl()]])
                     ->add('submit', SubmitType::class, [
-                        'label' => 'Mettre à jour le marqueur',
-                        'attr' => ['class' => 'form-input']
-                    ])
+                        'label' => 'Mettre à jour le marqueur'])
                     ->getForm();
 
                 $formUpdate->handleRequest($request);
 
                 if ($formUpdate->isSubmitted() && $formUpdate->isValid()) {
-                    $existingMarker = $this->entityManager->getRepository(Marker::class)->findOneBy(['name' => $formUpdate->get('name')->getData()]);
 
-                    if ($existingMarker) {
-                        try {
-                            // Update the existing entity with form values
-                            if($formUpdate->get('x_coord') === null){
-
-                                $existingMarker->setRegionId($formUpdate->get('region_id')->getData());
-                                $existingMarker->setXCoord($formUpdate->get('x_coord')->getData());
-                                $existingMarker->setYCoord($formUpdate->get('y_coord')->getData());
-                                $existingMarker->setUrl($formUpdate->get('url')->getData());
-                            }
-
-                            // Persist changes to the database
-                            $this->entityManager->flush();
-                        } catch (\Exception $e) {
-                            // In case of an error, add a danger flash message
-                            $this->addFlash('dangerDelete', 'Error deleting Marker: ' . $e->getMessage());
-                        }
-                    }
                 }
-
-                return $this->render('admin/marker/marker_update.html.twig', ['formUpdate' => $formUpdate->createView(), 'markers' => $markersInfo, 'form' => $form->createView(),'markerChosen' => $markerChosen]);
+                return $this->render('admin/marker/marker_update.html.twig', ['formUpdate' => $formUpdate->createView(), 'markers' => $markersInfo, 'form' => $form->createView(),'xPos' => $xPos,'yPos' => $yPos]);
             }
         }
 
