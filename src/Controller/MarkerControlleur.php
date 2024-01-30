@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Events;
 use App\Entity\Marker;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -143,9 +144,8 @@ class MarkerControlleur extends AbstractController
         return $this->render('admin/marker/marker_menu.html.twig');
     }
 
-
-    #[Route(path: '/admin/marker/update', name: 'marker_update')]
-    public function update(Request $request):Response{
+    #[Route(path: '/admin/marker/select', name: 'marker_select')]
+    public function select(Request $request):Response{
 
 
 
@@ -172,35 +172,62 @@ class MarkerControlleur extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // Get the name from the form
             $name = $form->get('name')->getData();
-            // Find the entity by name
-            $marker = $this->entityManager->getRepository(Marker::class)->findOneBy(['name' => $name]);
-            $xPos = $marker->getXCoord();
-            $yPos = $marker->getYCoord();
-
-            if($marker){
 
 
-                $formUpdate = $this->createFormBuilder($marker)
-                    ->add('region_id', TextType::class,['attr' => ['value' => $marker->getRegionId()]])
-                    ->add('x_coord', HiddenType::class,['attr' => ['value' => $marker->getXCoord()]])
-                    ->add('y_coord', HiddenType::class,['attr' => ['value' => $marker->getYCoord()]])
-                    ->add('name', TextType::class,['attr' => ['value' => $marker->getName()]])
-                    ->add('url', TextType::class,['attr' => ['value' => $marker->getUrl()]])
-                    ->add('submit', SubmitType::class, [
-                        'label' => 'Mettre à jour le marqueur'])
-                    ->getForm();
+            return $this->redirectToRoute('marker_update',['name' => $name]);
 
-                $formUpdate->handleRequest($request);
-
-                if ($formUpdate->isSubmitted() && $formUpdate->isValid()) {
-
-                }
-                return $this->render('admin/marker/marker_update.html.twig', ['formUpdate' => $formUpdate->createView(), 'markers' => $markersInfo, 'form' => $form->createView(),'xPos' => $xPos,'yPos' => $yPos]);
-            }
         }
 
         //il faut retourner cette page
-        return $this->render('admin/marker/marker_update.html.twig', ['markers' => $markersInfo, 'form' => $form->createView()]);
+        return $this->render('admin/marker/marker_select.html.twig', ['markers' => $markersInfo, 'form' => $form->createView()]);
+    }
+
+    #[Route(path: '/admin/marker/update/{name}', name: 'marker_update')]
+    public function update(Request $request, string $name):Response{
+        // Find the entity by name
+        $marker = $this->entityManager->getRepository(Marker::class)->findOneBy(['name' => $name]);
+        dump($marker);
+        $xPos = $marker->getXCoord();
+        $yPos = $marker->getYCoord();
+        $nameMarker = $marker->getName();
+
+        // Fetch the markers from your connection class (assuming Connection class is used)
+        $conn = new conn();
+        $markersInfo = $conn->index();
+        // Create the form
+        $form = $this->createFormBuilder($marker)
+            ->add('region_id', TextType::class, ['attr' => ['value' => $marker->getRegionId()]])
+            ->add('x_coord', HiddenType::class, ['attr' => ['value' => $marker->getXCoord()]])
+            ->add('y_coord', HiddenType::class, ['attr' => ['value' => $marker->getYCoord()]])
+            ->add('name', TextType::class, ['attr' => ['value' => $marker->getName()]])
+            ->add('url', TextType::class, ['attr' => ['value' => $marker->getUrl()]])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Mettre à jour le marqueur',
+            ])
+            ->getForm();
+        // Handle form submission
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+
+            $marker->setRegionId($form->get('region_id')->getData());
+            $marker->setXCoord($form->get('x_coord')->getData());
+            $marker->setYCoord($form->get('y_coord')->getData());
+            $marker->setName($form->get('name')->getData());
+            $marker->setUrl($form->get('url')->getData());
+            dump($form->getData());
+
+            // Save the changes to the database
+            $this->entityManager->flush();
+
+            return $this->redirectToRoute('marker_select');
+
+        }
+
+        //il faut retourner cette page
+        return $this->render('admin/marker/marker_update.html.twig', ['markers' => $markersInfo, 'form' => $form->createView(),'nameMarker' => $name,'xPos' => $xPos,'yPos' => $yPos]);
     }
 
     private function getMarkerChoices()

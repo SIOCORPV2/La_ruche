@@ -17,11 +17,13 @@
 
             </svg>
 
+            {% if xPos is defined %}
                 <div class="marker-container">
                     <a id="exampleInput" class="Marker" style="margin-left: 0; position: absolute; top: 0;">
                         <img class="Marker" src="{{ asset('images/pin.png') }}" alt="Pin Image">
                     </a>
                 </div>
+            {% endif %}
 
             {% if markers is defined and markers is iterable and markers|length > 0 %}
                 <div class="marker-container" id="marker-container">
@@ -38,17 +40,15 @@
                         {% set popupMarginLeft = xCoord + 5 %}
 
 
+                            <a class="Marker" style="margin-left: {{ marginLeft }}; position: absolute; top: {{ topPosition }};"
+                               onmouseover="showPopup('{{ name }}', {{ id }})" onmouseout="hidePopup({{ id }})">
+
+                                <img class="Marker" src="{{ asset('images/pin.png') }}" alt="Pin Image">
+                            </a>
+                            <div class="Marker_popup" id="popup_{{ id }}" style="margin-left: {{ popupMarginLeft ~ '%' }}; position: absolute; top: {{ popupTopPosition ~ '%' }};"></div>
 
 
-                            {% if name != nameMarker %}
-                                <a class="Marker" style="margin-left: {{ marginLeft }}; position: absolute; top: {{ topPosition }};"
-                                   onmouseover="showPopup('{{ name }}', {{ id }})" onmouseout="hidePopup({{ id }})">
 
-                                    <img class="Marker" src="{{ asset('images/pin.png') }}" alt="Pin Image">
-                                </a>
-                                <div class="Marker_popup" id="popup_{{ id }}" style="margin-left: {{ popupMarginLeft ~ '%' }}; position: absolute; top: {{ popupTopPosition ~ '%' }};"></div>
-
-                            {% endif %}
 
                     {% endfor %}
                 </div>
@@ -56,22 +56,12 @@
         </div>
     </div>
 
-        <div class="slider-container">
-            <input type="range" min="0" max="90" value="{{ xPos }}" class="slider" id="X_Slider">
-            <p>Postion X: <span id="X_sliderValue">{{ xPos }}</span></p>
-
-        </div>
-
-        <div class="slider-container">
-            <input type="range" min="0" max="90" value="{{ yPos }}" class="slider" id="Y_Slider">
-            <p>Postion Y: <span id="Y_sliderValue">{{ yPos }}</span></p>
-        </div>
-
-        {{ form_start(form) }}
-        (Aisne = 1; Somme = 2; Oise = 3)
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
 
 
-        {{ form_end(form) }}
 
 
 
