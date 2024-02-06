@@ -1,0 +1,28 @@
+.Navbar{
+  border: solid black 3px;
+  margin: 0;
+  text-align: center;
+  background: rgb(90 7 2);
+  height: 100px;
+  position: relative;
+  color: white;
+  font-size: 29px;
+
+  &_gauche{
+    border: solid black 3px;
+    float: left;
+    position: absolute;
+    padding-top: 27px;
+    left: 15%;
+    z-index: 3;
+  }
+
+  &_droite{
+    border: solid black 3px;
+    float: right;
+    margin: 40px 15% 0 0;
+    & a{
+      padding: 30px;
+    }
+  }
+}

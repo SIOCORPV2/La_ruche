@@ -101,7 +101,7 @@ class EventsController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('events_update', ['title' => $form->get('title')->getData()], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('events_select');
         }
 
         return $this->render('admin/events/events_update.html.twig', [
@@ -152,6 +152,17 @@ class EventsController extends AbstractController
         return $this->render('admin/events/events_delete.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route(path: '/event/{name}', name: 'event_page')]
+    public function show($name):Response{
+
+        $repository = $this->entityManager->getRepository(Events::class);
+        $event = $repository->findOneBy(['title' => $name]);
+
+
+        //il faut retourner cette page
+        return $this->render('events/show.html.twig', ["name" => $name, "event" => $event]);
     }
 
     public function getEventChoices()

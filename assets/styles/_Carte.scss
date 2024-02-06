@@ -1,0 +1,21 @@
+.Carte{
+  background-color: #FFD731;
+  border: solid black 3px;
+  position: absolute;
+
+
+  &_content{
+    border: solid black 3px;
+    top:10%;
+    margin-top:-10px;
+    left: 10%;
+    height: 50rem;
+    width: 80%;
+  }
+
+  &_map{
+    border: solid black 5px;
+    background-color: #4BD73A;
+    border-radius: 20px 50px 20px 50px;
+  }
+}

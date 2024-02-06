@@ -42,8 +42,10 @@ class MarkerControlleur extends AbstractController
             ->add('name', TextType::class, [
                 'attr' => ['class' => 'form-input']
             ])
-            ->add('url', TextType::class, [
-                'attr' => ['class' => 'form-input']
+            ->add('url', ChoiceType::class, [
+                'label' => "Assigner un event",
+                'attr' => ['class' => 'form-input'],
+                'choices' => $this->getEventChoices(),
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Create Marker',
@@ -200,7 +202,11 @@ class MarkerControlleur extends AbstractController
             ->add('x_coord', HiddenType::class, ['attr' => ['value' => $marker->getXCoord()]])
             ->add('y_coord', HiddenType::class, ['attr' => ['value' => $marker->getYCoord()]])
             ->add('name', TextType::class, ['attr' => ['value' => $marker->getName()]])
-            ->add('url', TextType::class, ['attr' => ['value' => $marker->getUrl()]])
+            ->add('url', ChoiceType::class, [
+                'label' => "Assigner un event",
+                'attr' => ['class' => 'form-input'],
+                'choices' => $this->getEventChoices(),
+            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Mettre à jour le marqueur',
             ])
@@ -237,6 +243,18 @@ class MarkerControlleur extends AbstractController
         $choices = [];
         foreach ($markers as $marker) {
             $choices[$marker->getName()] = $marker->getName(); // You can change this as per your requirement
+        }
+
+        return $choices;
+    }
+
+    public function getEventChoices()
+    {
+        $events = $this->entityManager->getRepository(Events::class)->findAll();
+
+        $choices = [];
+        foreach ($events as $event) {
+            $choices[$event->getTitle()] = $event->getTitle(); // You can change this as per your requirement
         }
 
         return $choices;

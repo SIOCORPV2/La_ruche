@@ -23,7 +23,7 @@
                         {% set xCoord = marker.x_coord %}
                         {% set yCoord = marker.y_coord %}
                         {% set name = marker.name %}
-                        {% set url = marker.url %}
+                        {% set url = "https://127.0.0.1:8000/event/#{marker.url}" %}
 
                         {# Assuming (0,0) is at the top left, adjust yCoord for the top position #}
                         {% set marginLeft = xCoord ~ '%' %}
