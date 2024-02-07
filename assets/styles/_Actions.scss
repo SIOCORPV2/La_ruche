@@ -2,7 +2,37 @@
   border: solid black 3px;
   height: 700px;
   background-color: #0064C7;
-  &_content{
 
+  &_content{
+    border: solid black 3px;
+    margin: 10%;
+    display: flex;
   }
+
+  &_card{
+    border: solid white 3px;
+    width: 350px;
+    height: 450px;
+    margin: 30px;
+    border-radius: 50px 15px;
+    background: linear-gradient(0deg, white 50%,#E72D1E 50%);
+  }
+
+  &_desc{
+    height: 320px;
+    border-radius: 50px 15px 0 0;
+    background-color: #E72D1E;
+  }
+
+  &_button{
+    height: 80px;
+    background-color: white;
+    border-radius:0 0 50px 15px;
+  }
+
+
+}
+
+.custom-shape-divider-top-1707233390 .shape-fill {
+  fill: #E72D1E;
 }
