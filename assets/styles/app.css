@@ -129,9 +129,10 @@ body {
   width: 80%;
 }
 .Carte_map {
-  border: solid black 5px;
+  width: 600px;
+  border: solid black 10px;
   background-color: #4BD73A;
-  border-radius: 20px 50px 20px 50px;
+  border-radius: 20px 50px;
 }
 
 .custom-shape-divider-top-1707234367 {
@@ -160,13 +161,36 @@ body {
   padding: 30px;
 }
 .Ludotheque {
-  height: 500px;
+  position: relative;
+  overflow: hidden;
   background-color: #202124;
-  padding: 0 20%;
+  height: 500px;
+  padding-left: 30%;
   color: white;
 }
 .Ludotheque h1 {
-  font-size: 60px;
+  font-size: 40px;
+}
+
+.custom-shape-divider-bottom-1707320132 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1707320132 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-bottom-1707320132 .shape-fill {
+  fill: #FFFFFF;
 }
 
 .MainContent {
@@ -259,26 +283,32 @@ body {
   margin: 0;
   text-align: center;
   background: rgb(90, 7, 2);
-  height: 100px;
+  height: 150px;
   position: relative;
   color: white;
-  font-size: 29px;
 }
 .Navbar_gauche {
   border: solid black 3px;
   float: left;
   position: absolute;
-  padding-top: 27px;
+  padding-top: 40px;
   left: 15%;
   z-index: 3;
+}
+.Navbar_gauche img {
+  width: 135px;
 }
 .Navbar_droite {
   border: solid black 3px;
   float: right;
-  margin: 40px 15% 0 0;
+  margin: 60px 15% 0 0;
 }
 .Navbar_droite a {
-  padding: 30px;
+  font-size: 35px;
+  margin: 30px;
+  text-decoration: none;
+  color: white;
+  border: solid black 3px;
 }
 
 .News {
