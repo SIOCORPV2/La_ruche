@@ -2,21 +2,25 @@
   background-color: #FFD731;
   border: solid black 3px;
   position: absolute;
+  display: flex;
+
 
 
   &_content{
     border: solid black 3px;
     top:20%;
     margin-top:-10px;
-    left: 10%;
-    height: 45rem;
-    width: 80%;
+    left: 20%;
+    height: 500px;
+    width: 60%;
   }
 
   &_map{
 
-    width: 600px;
-    border: solid black 10px;
+    width: 100%;
+    height: 100%;
+    border: solid black 3px;
+    box-shadow: black 5px 5px ;
     background-color: #4BD73A;
     border-radius: 20px 50px;
   }

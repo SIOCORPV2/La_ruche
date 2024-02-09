@@ -119,18 +119,21 @@ body {
   background-color: #FFD731;
   border: solid black 3px;
   position: absolute;
+  display: flex;
 }
 .Carte_content {
   border: solid black 3px;
   top: 20%;
   margin-top: -10px;
-  left: 10%;
-  height: 45rem;
-  width: 80%;
+  left: 20%;
+  height: 500px;
+  width: 60%;
 }
 .Carte_map {
-  width: 600px;
-  border: solid black 10px;
+  width: 100%;
+  height: 100%;
+  border: solid black 3px;
+  box-shadow: black 5px 5px;
   background-color: #4BD73A;
   border-radius: 20px 50px;
 }
@@ -155,21 +158,57 @@ body {
   fill: #FFB526;
 }
 
+.Footer {
+  height: 400px;
+}
+
 .Jeux {
   height: 300px;
+  border: black solid 3px;
   background: linear-gradient(0deg, #202124 50%, #0064C7 50%);
   padding: 30px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
+.Jeux_1 img, .Jeux_2 img, .Jeux_3 img {
+  margin: 30px;
+  height: 200px;
+  width: auto;
+  border-radius: 15px;
+  transform: rotate(-5deg);
+}
+
 .Ludotheque {
   position: relative;
   overflow: hidden;
+  border: black solid 3px;
   background-color: #202124;
-  height: 500px;
-  padding-left: 30%;
+  height: 600px;
+  padding-left: 20%;
+  padding-right: 20%;
   color: white;
+  line-height: 35px;
 }
 .Ludotheque h1 {
-  font-size: 40px;
+  font-size: 50px;
+  font-weight: bolder;
+  margin-bottom: 40px;
+}
+.Ludotheque a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  background-color: #0064C7;
+  margin: 50px auto; /* Set margin-top and margin-bottom to 30px, and use auto for margin-left and margin-right */
+  border-radius: 16px;
+  height: 40px;
+  line-height: 40px; /* Add line-height to vertically center the text */
+  width: 200px;
+}
+.Ludotheque p {
+  font-size: 25px;
 }
 
 .custom-shape-divider-bottom-1707320132 {
@@ -206,9 +245,11 @@ body {
 }
 
 .Map {
-  width: 45%;
+  width: 60%;
   border: solid black 1px;
   position: relative;
+  display: block;
+  margin: auto;
 }
 .Map__image path {
   fill: #dfe7e7;
@@ -279,7 +320,6 @@ body {
 }
 
 .Navbar {
-  border: solid black 3px;
   margin: 0;
   text-align: center;
   background: rgb(90, 7, 2);
@@ -288,7 +328,6 @@ body {
   color: white;
 }
 .Navbar_gauche {
-  border: solid black 3px;
   float: left;
   position: absolute;
   padding-top: 40px;
@@ -299,7 +338,6 @@ body {
   width: 135px;
 }
 .Navbar_droite {
-  border: solid black 3px;
   float: right;
   margin: 60px 15% 0 0;
 }
@@ -308,21 +346,55 @@ body {
   margin: 30px;
   text-decoration: none;
   color: white;
-  border: solid black 3px;
 }
 
 .News {
   background-color: rgb(255, 181, 38);
-  border: solid black 3px;
   position: absolute;
 }
 .News_content {
-  border: solid black 3px;
-  top: 10%;
+  top: 17%;
   margin-top: -10px;
   left: 10%;
   height: 50rem;
   width: 80%;
+}
+.News_card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.News_fixed {
+  height: 45%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.News_temp {
+  margin-top: 2%;
+  height: 45%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.News_new {
+  display: flex;
+  background-color: white;
+  height: auto;
+  width: 20%;
+  margin: 0 4%;
+  border-radius: 50px 0;
+  justify-content: center;
+  flex-direction: column;
+}
+.News_new_image {
+  height: 80%;
+}
+.News_new_title {
+  height: 20%;
+  text-align: center;
 }
 
 #container {

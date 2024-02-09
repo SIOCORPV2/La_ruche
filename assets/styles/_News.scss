@@ -1,16 +1,61 @@
 .News{
   background-color: rgb(255 181 38);
-  border: solid black 3px;
   position: absolute;
 
   &_content{
-    border: solid black 3px;
-    top:10%;
+    top:17%;
     margin-top:-10px;
     left: 10%;
     height: 50rem;
     width: 80%;
   }
+
+  &_card{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &_fixed{
+    height: 45%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  &_temp{
+    margin-top: 2%;
+    height: 45%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  &_new{
+    display: flex;
+    background-color: white;
+    height: auto;
+    width: 20%;
+    margin: 0 4%;
+    border-radius: 50px 0;
+    justify-content: center;
+    flex-direction: column;
+
+    &_image{
+      height: 80%;
+
+    }
+    &_title{
+      height: 20%;
+      text-align: center;
+    }
+
+
+  }
+
+
 }
 
 #container{

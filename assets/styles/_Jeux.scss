@@ -1,16 +1,19 @@
-.Jeux{
+.Jeux {
   height: 300px;
-  background: linear-gradient(0deg, #202124 50%,#0064C7 50%);
+  border: black solid 3px;
+  background: linear-gradient(0deg, #202124 50%, #0064C7 50%);
   padding: 30px;
-  &_1{
-
-  }
-
-  &_2{
-
-  }
-
-  &_3{
-
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  &_1 img,
+  &_2 img,
+  &_3 img {
+    margin: 30px;
+    height: 200px;
+    width: auto;
+    border-radius: 15px;
+    transform: rotate(-5deg);
   }
 }
+
