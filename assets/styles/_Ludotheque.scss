@@ -1,7 +1,6 @@
 .Ludotheque {
   position: relative;
   overflow: hidden;
-  border: black solid 3px;
   background-color: #202124;
   height: 600px;
   padding-left:20%;
@@ -35,7 +34,7 @@
 
 .custom-shape-divider-bottom-1707320132 {
   position: absolute;
-  bottom: 0;
+  bottom: -0.6px;
   left: 0;
   width: 100%;
   overflow: hidden;

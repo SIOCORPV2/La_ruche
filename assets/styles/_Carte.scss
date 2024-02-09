@@ -1,13 +1,11 @@
 .Carte{
   background-color: #FFD731;
-  border: solid black 3px;
   position: absolute;
   display: flex;
 
 
 
   &_content{
-    border: solid black 3px;
     top:20%;
     margin-top:-10px;
     left: 20%;

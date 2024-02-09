@@ -45,12 +45,27 @@
 
     &_image{
       height: 80%;
+      display: flex;
+
+      & img{
+        margin: 5px;
+        justify-content: center;
+        width: 227px;
+        border-radius: 50px 0;
+      }
 
     }
-    &_title{
-      height: 20%;
+    &_title {
+      overflow: hidden;
+      max-width: 170px;
+      white-space: normal;
+      display: flex;
+      align-items: center;
+      margin: auto;
+      max-height: 20%;
       text-align: center;
     }
+
 
 
   }
@@ -61,6 +76,5 @@
 #container{
   height: 700px;
   width: 100%;
-  border: solid black 3px;
   position: relative;
 }

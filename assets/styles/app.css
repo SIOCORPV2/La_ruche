@@ -83,12 +83,11 @@ body {
 }
 
 .Actions {
-  border: solid black 3px;
+  border: solid #0064C7 3px;
   height: 700px;
   background-color: #0064C7;
 }
 .Actions_content {
-  border: solid black 3px;
   margin: 10%;
   display: flex;
 }
@@ -117,12 +116,10 @@ body {
 
 .Carte {
   background-color: #FFD731;
-  border: solid black 3px;
   position: absolute;
   display: flex;
 }
 .Carte_content {
-  border: solid black 3px;
   top: 20%;
   margin-top: -10px;
   left: 20%;
@@ -164,7 +161,6 @@ body {
 
 .Jeux {
   height: 300px;
-  border: black solid 3px;
   background: linear-gradient(0deg, #202124 50%, #0064C7 50%);
   padding: 30px;
   display: flex;
@@ -182,7 +178,6 @@ body {
 .Ludotheque {
   position: relative;
   overflow: hidden;
-  border: black solid 3px;
   background-color: #202124;
   height: 600px;
   padding-left: 20%;
@@ -213,7 +208,7 @@ body {
 
 .custom-shape-divider-bottom-1707320132 {
   position: absolute;
-  bottom: 0;
+  bottom: -0.6px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -246,7 +241,6 @@ body {
 
 .Map {
   width: 60%;
-  border: solid black 1px;
   position: relative;
   display: block;
   margin: auto;
@@ -391,16 +385,28 @@ body {
 }
 .News_new_image {
   height: 80%;
+  display: flex;
+}
+.News_new_image img {
+  margin: 5px;
+  justify-content: center;
+  width: 227px;
+  border-radius: 50px 0;
 }
 .News_new_title {
-  height: 20%;
+  overflow: hidden;
+  max-width: 170px;
+  white-space: normal;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  max-height: 20%;
   text-align: center;
 }
 
 #container {
   height: 700px;
   width: 100%;
-  border: solid black 3px;
   position: relative;
 }
 
