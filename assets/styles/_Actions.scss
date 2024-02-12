@@ -1,10 +1,9 @@
 .Actions{
-  border: solid #0064C7 3px;
-  height: 700px;
+  height: 80rem;
   background-color: #0064C7;
 
   &_content{
-    margin: 10%;
+    padding: 15%;
     display: flex;
   }
 
@@ -35,4 +34,24 @@
 
 .custom-shape-divider-top-1707233390 .shape-fill {
   fill: #E72D1E;
+}
+
+.custom-shape-divider-top-1707736261 {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1707736261 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-top-1707736261 .shape-fill {
+  fill: #FFD731;
 }

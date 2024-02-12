@@ -9,10 +9,31 @@
   &_2 img,
   &_3 img {
     margin: 30px;
-    height: 200px;
-    width: auto;
+    height: 70%;
     border-radius: 15px;
     transform: rotate(-5deg);
+  }
+  &_1,
+  &_2,
+  &_3{
+    display: flex;
+    height: 100%;
+  }
+  @media screen and (max-width: 1300px) {
+    &_1 img,
+    &_2 img,
+    &_3 img {
+      margin: 30px;
+      height: 70%;
+      border-radius: 15px;
+      transform: rotate(-5deg);
+    }
+    &_1,
+    &_2,
+    &_3{
+      display: flex;
+      height: 50%;
+    }
   }
 }
 

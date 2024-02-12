@@ -83,12 +83,11 @@ body {
 }
 
 .Actions {
-  border: solid #0064C7 3px;
-  height: 700px;
+  height: 80rem;
   background-color: #0064C7;
 }
 .Actions_content {
-  margin: 10%;
+  padding: 15%;
   display: flex;
 }
 .Actions_card {
@@ -114,6 +113,26 @@ body {
   fill: #E72D1E;
 }
 
+.custom-shape-divider-top-1707736261 {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1707736261 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-top-1707736261 .shape-fill {
+  fill: #FFD731;
+}
+
 .Carte {
   background-color: #FFD731;
   position: absolute;
@@ -123,7 +142,7 @@ body {
   top: 20%;
   margin-top: -10px;
   left: 20%;
-  height: 500px;
+  height: auto;
   width: 60%;
 }
 .Carte_map {
@@ -156,123 +175,16 @@ body {
 }
 
 .Footer {
-  height: 200px;
+  background-color: #202124;
+  color: white;
+  height: 80px;
   display: flex;
   justify-content: center;
-  padding-top: 30px;
 }
-
-.social-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px;
-}
-
-.social-button {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  width: 110px;
-  height: 110px;
+.Footer a {
   text-decoration: none;
-  border-radius: 100%;
-  background: #fff;
-  text-align: center;
-}
-.social-button::after {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 50%;
-  display: block;
-  width: 0;
-  height: 0;
-  border-radius: 100%;
-  transition: 0.3s;
-}
-.social-button:focus, .social-button:hover {
-  color: #fff;
-}
-.social-button:focus::after, .social-button:hover::after {
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  margin-left: calc(-50% - 1px);
-}
-.social-button i,
-.social-button svg {
-  position: relative;
-  z-index: 1;
-  transition: 0.3s;
-}
-.social-button i {
-  font-size: 44px;
-}
-.social-button svg {
-  height: 40%;
-  width: 40%;
-}
-.social-button--mail {
-  color: #0072c6;
-}
-.social-button--mail::after {
-  background: #0072c6;
-}
-.social-button--facebook {
-  color: #3b5999;
-}
-.social-button--facebook::after {
-  background: #3b5999;
-}
-.social-button--linkedin {
-  color: #0077b5;
-}
-.social-button--linkedin::after {
-  background: #0077b5;
-}
-.social-button--github {
-  color: #6e5494;
-}
-.social-button--github::after {
-  background: #6e5494;
-}
-.social-button--codepen {
-  color: #212121;
-}
-.social-button--codepen::after {
-  background: #212121;
-}
-.social-button--steam {
-  color: #7da10e;
-}
-.social-button--steam::after {
-  background: #7da10e;
-}
-.social-button--snapchat {
-  color: #eec900;
-}
-.social-button--snapchat::after {
-  background: #eec900;
-}
-.social-button--twitter {
-  color: #55acee;
-}
-.social-button--twitter::after {
-  background: #55acee;
-}
-.social-button--instagram {
-  color: #e4405f;
-}
-.social-button--instagram::after {
-  background: #e4405f;
-}
-.social-button--npmjs {
-  color: #c12127;
-}
-.social-button--npmjs::after {
-  background: #c12127;
+  color: white;
+  margin-top: 30px;
 }
 
 .Jeux {
@@ -285,10 +197,25 @@ body {
 }
 .Jeux_1 img, .Jeux_2 img, .Jeux_3 img {
   margin: 30px;
-  height: 200px;
-  width: auto;
+  height: 70%;
   border-radius: 15px;
   transform: rotate(-5deg);
+}
+.Jeux_1, .Jeux_2, .Jeux_3 {
+  display: flex;
+  height: 100%;
+}
+@media screen and (max-width: 1300px) {
+  .Jeux_1 img, .Jeux_2 img, .Jeux_3 img {
+    margin: 30px;
+    height: 70%;
+    border-radius: 15px;
+    transform: rotate(-5deg);
+  }
+  .Jeux_1, .Jeux_2, .Jeux_3 {
+    display: flex;
+    height: 50%;
+  }
 }
 
 .Ludotheque {
@@ -458,6 +385,49 @@ body {
   color: white;
 }
 
+/*Styling Hamburger Icon*/
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: #f2f5f7;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  /* Hide the right part of the navbar on smaller screens */
+  .Navbar .Navbar_droite {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+    transition: all 0.7s ease;
+  }
+}
+/*Animating Hamburger Icon on Click*/
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  transition: all 0.7s ease;
+  width: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
 .News {
   background-color: rgb(255, 181, 38);
   position: absolute;
@@ -506,7 +476,7 @@ body {
 .News_new_image img {
   margin: 5px;
   justify-content: center;
-  width: 227px;
+  width: 95%;
   border-radius: 50px 0;
 }
 .News_new_title {
@@ -524,6 +494,131 @@ body {
   height: 700px;
   width: 100%;
   position: relative;
+}
+
+.Social {
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  flex-direction: column;
+}
+.Social_title {
+  margin: 30px auto;
+  font-size: 40px;
+}
+
+.social-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+
+.social-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  width: 110px;
+  height: 110px;
+  text-decoration: none;
+  border-radius: 100%;
+  background: #fff;
+  text-align: center;
+}
+.social-button::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+  transition: 0.3s;
+}
+.social-button:focus, .social-button:hover {
+  color: #fff;
+}
+.social-button:focus::after, .social-button:hover::after {
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  margin-left: calc(-50% - 1px);
+}
+.social-button i,
+.social-button svg {
+  position: relative;
+  z-index: 1;
+  transition: 0.3s;
+}
+.social-button i {
+  font-size: 44px;
+}
+.social-button svg {
+  height: 40%;
+  width: 40%;
+}
+.social-button--mail {
+  color: #0072c6;
+}
+.social-button--mail::after {
+  background: #0072c6;
+}
+.social-button--facebook {
+  color: #3b5999;
+}
+.social-button--facebook::after {
+  background: #3b5999;
+}
+.social-button--linkedin {
+  color: #0077b5;
+}
+.social-button--linkedin::after {
+  background: #0077b5;
+}
+.social-button--github {
+  color: #6e5494;
+}
+.social-button--github::after {
+  background: #6e5494;
+}
+.social-button--codepen {
+  color: #212121;
+}
+.social-button--codepen::after {
+  background: #212121;
+}
+.social-button--steam {
+  color: #7da10e;
+}
+.social-button--steam::after {
+  background: #7da10e;
+}
+.social-button--snapchat {
+  color: #eec900;
+}
+.social-button--snapchat::after {
+  background: #eec900;
+}
+.social-button--twitter {
+  color: #55acee;
+}
+.social-button--twitter::after {
+  background: #55acee;
+}
+.social-button--instagram {
+  color: #e4405f;
+}
+.social-button--instagram::after {
+  background: #e4405f;
+}
+.social-button--npmjs {
+  color: #c12127;
+}
+.social-button--npmjs::after {
+  background: #c12127;
 }
 
 /*# sourceMappingURL=app.css.map */

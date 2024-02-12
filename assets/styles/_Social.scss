@@ -1,8 +1,14 @@
-.Footer{
-  height: 200px;
+.Social{
+  height: 140px;
   display: flex;
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 20px;
+  flex-direction: column;
+
+  &_title{
+    margin: 30px auto;
+    font-size: 40px;
+  }
 }
 
 .social-buttons {
