@@ -204,6 +204,7 @@ body {
 .Jeux_1, .Jeux_2, .Jeux_3 {
   display: flex;
   height: 100%;
+  transition-duration: 1s;
 }
 @media screen and (max-width: 1300px) {
   .Jeux_1 img, .Jeux_2 img, .Jeux_3 img {
@@ -215,6 +216,7 @@ body {
   .Jeux_1, .Jeux_2, .Jeux_3 {
     display: flex;
     height: 50%;
+    transition-duration: 1s;
   }
 }
 
@@ -398,10 +400,17 @@ body {
   display: none;
 }
 
+.nav-links {
+  display: none;
+}
+
 @media screen and (max-width: 1200px) {
   /* Hide the right part of the navbar on smaller screens */
-  .Navbar .Navbar_droite {
+  .Navbar_droite {
     display: none;
+  }
+  .Navbar_droite_open {
+    display: flex;
   }
   .hamburger {
     display: block;
@@ -463,8 +472,8 @@ body {
   display: flex;
   background-color: white;
   height: auto;
-  width: 20%;
-  margin: 0 4%;
+  width: 25%;
+  margin: 0 2%;
   border-radius: 50px 0;
   justify-content: center;
   flex-direction: column;

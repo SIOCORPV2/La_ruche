@@ -41,10 +41,17 @@
 .hamburger{
   display: none;
 }
+
+.nav-links{
+  display: none;
+}
 @media screen and (max-width: 1200px) {
   /* Hide the right part of the navbar on smaller screens */
-  .Navbar .Navbar_droite {
+  .Navbar_droite {
     display: none;
+    &_open{
+      display: flex;
+    }
   }
   .hamburger{
     display:block;
@@ -70,3 +77,4 @@
 .toggle .line3{
   transform: rotate(45deg) translate(-5px,-6px);
 }
+
