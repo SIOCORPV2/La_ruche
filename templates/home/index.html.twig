@@ -3,7 +3,10 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-        <div  class="Navbar">
+
+    <link rel="stylesheet" href="{{ asset('swiper-bundle.min.css') }}">
+
+    <div  class="Navbar">
             <nav role="navigation">
                 <div class="hamburger">
                     <div class="line1"></div>
@@ -21,70 +24,81 @@
                 </div>
             </nav>
         </div>
-        <div id="container" class="News">
-            <div class="News News_content">
-                <div class="News_card">
-                    <div class="News_fixed">
-                        <div class="News_new">
-                            <div class="News_new_image">
-                                <img src="{{ asset('images/image_illustration.png') }}">
-                            </div>
-                            <div class="News_new_title">
-                                Exemple News
-                            </div>
-                        </div>
-                        <div class="News_new">
-                            <div class="News_new_image">
-                                <img src="{{ asset('images/image_illustration.png') }}">
-                            </div>
-                            <div class="News_new_title">
-                                Exemple News
-                            </div>
+    <div id="container-new" class="News">
+        <div class="News News_content">
+            <div class="News_card">
 
-                        </div>
-                        <div class="News_new">
-                            <div class="News_new_image">
-                                <img src="{{ asset('images/image_illustration.png') }}">
-                            </div>
-                            <div class="News_new_title">
-                                Exemple News
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="News_temp">
-                        <div class="News_new">
-                            <div class="News_new_image">
-                                <img src="{{ asset('images/image_illustration.png') }}">
-                            </div>
-                            <div class="News_new_title">
-                                Exemple News
-                            </div>
-                        </div>
-                        <div class="News_new">
-                            <div class="News_new_image">
-                                <img src="{{ asset('images/image_illustration.png') }}">
-                            </div>
-                            <div class="News_new_title">
-                                Exemple News
-                            </div>
+                <div class="News_fixed">
 
-                        </div>
+                    {% for new in news|slice(0, 3) %}
+
                         <div class="News_new">
                             <div class="News_new_image">
-                                <img src="{{ asset('images/image_illustration.png') }}">
+                                {% if new.image is null %}
+                                    <img src="{{ asset('images/image_illustration.png') }}">
+                                {% else %}
+                                    <img src="{{ new.image }}">
+                                {% endif %}
                             </div>
                             <div class="News_new_title">
-                                Exemple News
+                                {{ new.title }}
                             </div>
-
                         </div>
-                    </div>
+
+                    {% endfor %}
                 </div>
+
+
             </div>
         </div>
+    </div>
 
-        <section id="container" class="Carte">
+    <div class="News-temp">
+        <div class="slider-container-new swiper">
+
+            <div class="slide-content">
+
+                <div class="card-wrapper swiper-wrapper">
+
+
+
+                    {% for new in news|slice(3) %}
+                    <div class="card swiper-slide">
+                        <div class="News-temp-new">
+
+
+
+                                <div class="card-image">
+                                    <div class="News-temp-new-image">
+                                        {% if new.image is null %}
+                                            <img src="{{ asset('images/image_illustration.png') }}">
+                                        {% else %}
+                                            <img src="{{ new.image }}">
+                                        {% endif %}
+                                    </div>
+                            </div>
+
+                            <div class="card-content News_new_title">
+                                {{ new.title }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+
+            <div class="swiper-button-next" ></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+    </div>
+
+
+    <section id="container" class="Carte">
             <div class="Carte Carte_content">
                     <div class="Carte_map">
                         <div class="Map" id="Map">
@@ -286,6 +300,22 @@
 
             //Hamburger Animation
             hamburger.classList.toggle("toggle");
+        });
+    </script>
+
+    <script src="{{ asset('swiper-bundle.min.js') }}"></script>
+
+    <script>
+        var swiper = new Swiper(".slide-content", {
+            slidesPerView : 3,
+            spaceBetween : 30,
+            slidesPerGroup : 3,
+            loop : true,
+            loopFillGroupWithBlank: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
         });
     </script>
 {% endblock %}

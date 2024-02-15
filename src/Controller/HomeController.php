@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Events;
+use App\Entity\News;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +22,10 @@ class HomeController extends AbstractController
 
         $conn = new conn();
         $markers = $conn->index();
+
+        $news = $this->entityManager->getRepository(News::class)->findAll();
+
         //il faut retourner cette page
-        return $this->render('home/index.html.twig', ['markers' => $markers]);
+        return $this->render('home/index.html.twig', ['markers' => $markers, 'news' => $news]);
     }
 }

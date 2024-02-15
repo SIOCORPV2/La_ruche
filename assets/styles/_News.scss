@@ -3,9 +3,9 @@
   position: absolute;
 
   &_content{
-    top:17%;
+    top:25%;
     margin-top:-10px;
-    left: 10%;
+    left: 14.5%;
     height: 50rem;
     width: 80%;
   }
@@ -14,34 +14,31 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
+    padding-right: 11%;
   }
 
   &_fixed{
-    height: 45%;
+    height: 60%;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: row;
   }
 
-  &_temp{
-    margin-top: 2%;
-    height: 45%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-  }
+
 
   &_new{
+    border: black solid 2px;
     display: flex;
     background-color: white;
     height: auto;
-    width: 25%;
-    margin: 0 2%;
+    width: 100%;
+    margin: 3% 1.5%;
     border-radius: 50px 0;
     justify-content: center;
     flex-direction: column;
+
 
     &_image{
       height: 80%;
@@ -77,4 +74,107 @@
   height: 700px;
   width: 100%;
   position: relative;
+}
+#container-new{
+  height: 400px;
+  width: 100%;
+  position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+*{
+  box-sizing: border-box;
+}
+
+.News-temp{
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255 181 38);
+
+  padding-bottom: 4%;
+}
+
+.slide-content{
+  padding: 0 5%;
+}
+
+.card{
+  border: black solid 2px;
+  background-color: white;
+  border-radius: 50px 0;
+}
+
+.image-content,
+.card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.image-content{
+  width: 100%;
+}
+.card-image{
+  height: 180px;
+  width: 100%;
+}
+
+.card-image .card-img{
+  width: 100%;
+  border-radius: 50px 0;
+}
+
+
+
+.slider-container-new{
+  max-width: 1120px;
+  width: 100%;
+  background-color: rgb(255 181 38);
+  padding:0 40px;
+}
+
+.name{
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+
+
+
+
+.swiper-button-next, .swiper-button-prev {
+  margin: 0;
+}
+
+
+.News-temp-new{
+  display: flex;
+  background-color: white;
+  width: 100%;
+  margin: 0;
+  border-radius: 50px 0;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.News-temp-new-image{
+  height: 100%;
+  display: flex;
+  & img{
+    margin: 5px;
+    justify-content: center;
+    width: 95%;
+    border-radius: 50px 0;
+  }
 }
