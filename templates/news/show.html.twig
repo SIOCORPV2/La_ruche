@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events{% endblock %}
+
+{% block body %}
+    <h1>Events</h1>
+
+    {{ event.id }}
+    {{ event.idRegion }}
+    {{ event.title }}
+    {{ event.description | raw }}
+
+
+{% endblock %}

@@ -91,6 +91,7 @@ body {
   display: flex;
 }
 .Actions_card {
+  position: relative;
   border: solid white 3px;
   width: 350px;
   height: 450px;
@@ -107,6 +108,20 @@ body {
   height: 80px;
   background-color: white;
   border-radius: 0 0 50px 15px;
+}
+.Actions_image_poulpe {
+  margin-left: 31%;
+  top: -60px;
+  width: 110px;
+  height: auto;
+  position: absolute;
+}
+.Actions_image_abeille {
+  margin-left: 31%;
+  top: -60px;
+  width: 70px;
+  height: auto;
+  position: absolute;
 }
 
 .custom-shape-divider-top-1707233390 .shape-fill {
@@ -141,17 +156,38 @@ body {
 .Carte_content {
   top: 20%;
   margin-top: -10px;
-  left: 20%;
+  left: 5%;
   height: auto;
-  width: 60%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
 }
 .Carte_map {
   width: 100%;
-  height: 100%;
+  height: 500px;
   border: solid black 3px;
   box-shadow: black 5px 5px;
   background-color: #4BD73A;
   border-radius: 20px 50px;
+}
+.Carte_desc {
+  margin-left: 3%;
+  width: 50%;
+  height: 500px;
+  border: solid black 4px;
+  box-shadow: black 5px 5px;
+  background-color: #B787D3;
+  border-radius: 20px 50px;
+}
+.Carte_desc_title {
+  font-size: 45px;
+  font-weight: bold;
+  padding: 20% 0 10% 10%;
+}
+.Carte_desc_content {
+  padding: 0 20% 0 10%;
+  line-height: 35px;
+  font-size: 25px;
 }
 
 .custom-shape-divider-top-1707234367 {
@@ -174,16 +210,22 @@ body {
   fill: #FFB526;
 }
 
+#container {
+  height: 700px;
+  width: 100%;
+  position: relative;
+}
+
 .Footer {
-  background-color: #202124;
-  color: white;
+  background-color: white;
+  color: black;
   height: 80px;
   display: flex;
   justify-content: center;
 }
 .Footer a {
   text-decoration: none;
-  color: white;
+  color: black;
   margin-top: 30px;
 }
 
@@ -197,7 +239,7 @@ body {
 }
 .Jeux_1 img, .Jeux_2 img, .Jeux_3 img {
   margin: 30px;
-  height: 70%;
+  height: 90%;
   border-radius: 15px;
   transform: rotate(-5deg);
 }
@@ -221,10 +263,11 @@ body {
 }
 
 .Ludotheque {
+  padding-top: 80px;
   position: relative;
   overflow: hidden;
   background-color: #202124;
-  height: 600px;
+  height: 700px;
   padding-left: 20%;
   padding-right: 20%;
   color: white;
@@ -382,6 +425,7 @@ body {
 }
 .Navbar_droite a {
   font-size: 35px;
+  font-weight: bolder;
   margin: 30px;
   text-decoration: none;
   color: white;
@@ -494,12 +538,6 @@ body {
   text-align: center;
 }
 
-#container {
-  height: 700px;
-  width: 100%;
-  position: relative;
-}
-
 #container-new {
   height: 400px;
   width: 100%;
@@ -511,7 +549,7 @@ body {
 }
 
 .News-temp {
-  min-height: 10vh;
+  min-height: 12vh;
   display: flex;
   align-items: center;
   justify-content: center;

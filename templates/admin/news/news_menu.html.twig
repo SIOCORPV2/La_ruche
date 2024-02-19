@@ -1,0 +1,12 @@
+{% block title %}News Menu{% endblock %}
+{% extends "base.html.twig" %}
+
+{% block body %}
+    Menu Admin
+
+    <a type="button" href="{{ path('news_create') }}">Créer une news</a>
+    <a type="button" href="{{ path('news_delete') }}">Supprimer une news</a>
+    <a type="button" href="{{ path('news_select') }}">Modifier une news</a>
+    <a type="button" href="{{ path('admin_menu') }}">Retour au menu</a>
+
+{% endblock body %}

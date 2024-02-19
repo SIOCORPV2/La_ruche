@@ -2,12 +2,14 @@
   height: 80rem;
   background-color: #0064C7;
 
+
   &_content{
     padding: 15%;
     display: flex;
   }
 
   &_card{
+    position: relative;
     border: solid white 3px;
     width: 350px;
     height: 450px;
@@ -27,6 +29,22 @@
     height: 80px;
     background-color: white;
     border-radius:0 0 50px 15px;
+  }
+
+  &_image_poulpe{
+    margin-left: 31%;
+    top: -60px;
+    width: 110px;
+    height: auto;
+    position: absolute;
+  }
+
+  &_image_abeille{
+    margin-left: 31%;
+    top: -60px;
+    width: 70px;
+    height: auto;
+    position: absolute;
   }
 
 

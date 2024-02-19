@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Select an News to Update</h1>
+
+    {% for flashType, flashMessages in app.flashes %}
+        <div class="alert alert-{{ flashType }}">
+            {% for flashMessage in flashMessages %}
+                {{ flashMessage }}
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+        {{ form_start(form) }}
+        {{ form_end(form) }}
+
+    <a href="{{ path('events_menu') }}">Retour au menu</a>
+{% endblock %}
