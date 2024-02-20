@@ -165,6 +165,17 @@ class EventsController extends AbstractController
         return $this->render('events/show.html.twig', ["name" => $name, "event" => $event]);
     }
 
+    #[Route(path: '/event/region/{id}', name: 'event_region')]
+    public function showRegion($id):Response{
+
+        $repository = $this->entityManager->getRepository(Events::class);
+        $events = $repository->findAll();
+
+
+        //il faut retourner cette page
+        return $this->render('events/show.html.twig', ["id" => $id, "events" => $events]);
+    }
+
     public function getEventChoices()
     {
         $events = $this->entityManager->getRepository(Events::class)->findAll();
