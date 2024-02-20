@@ -32,8 +32,6 @@ class Marker
     #[ORM\Column(length: 255,nullable: true)]
     private ?string $url = null;
 
-    #[ORM\Column(nullable: false)]
-    private array $idEvent = [""];
 
     public function getId(): ?int
     {
@@ -100,16 +98,4 @@ class Marker
         return $this;
     }
 
-    public function getIdEvent(): ?array
-    {
-        return $this->idEvent;
-    }
-
-
-    public function setIdEvent(array $idEvent): static
-    {
-        $this->idEvent = $idEvent;
-
-        return $this;
-    }
 }

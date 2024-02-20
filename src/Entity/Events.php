@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EventsRepository;
+use DateTime;
+use Doctrine\DBAL\Types\DateImmutableType;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EventsRepository::class)]
@@ -15,30 +17,34 @@ class Events
 
 
     #[ORM\Column]
-    private ?int $id_region = null;
+    private ?int $id_marker = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $location = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?DateTime $date = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdRegion(): ?int
+    public function getIdMarker(): ?int
     {
-        return $this->id_region;
+        return $this->id_marker;
     }
 
-    public function setIdRegion(int $id_region): static
+    public function setIdMarker(?int $id_marker): void
     {
-        $this->id_region = $id_region;
-
-        return $this;
+        $this->id_marker = $id_marker;
     }
+
+
 
     public function getTitle(): ?string
     {
@@ -63,6 +69,29 @@ class Events
 
         return $this;
     }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(?string $location): void
+    {
+        $this->location = $location;
+    }
+
+    public function getDate(): ?DateTime
+    {
+        return $this->date;
+    }
+
+    public function setDate(?DateTime $date): void
+    {
+        $this->date = $date;
+    }
+
+
+
 
 
 }

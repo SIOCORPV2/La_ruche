@@ -216,6 +216,17 @@ body {
   position: relative;
 }
 
+.Events {
+  min-height: 70vh;
+  position: relative;
+  padding-top: 120px;
+  background-color: rgb(255, 181, 38);
+  font-size: 22px;
+}
+.Events h1 {
+  font-size: 40px;
+}
+
 .Footer {
   background-color: white;
   color: black;

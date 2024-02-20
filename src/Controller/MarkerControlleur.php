@@ -42,11 +42,6 @@ class MarkerControlleur extends AbstractController
             ->add('name', TextType::class, [
                 'attr' => ['class' => 'form-input']
             ])
-            ->add('url', ChoiceType::class, [
-                'label' => "Assigner un event",
-                'attr' => ['class' => 'form-input'],
-                'choices' => $this->getEventChoices(),
-            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Create Marker',
                 'attr' => ['class' => 'form-input']
@@ -202,11 +197,6 @@ class MarkerControlleur extends AbstractController
             ->add('x_coord', HiddenType::class, ['attr' => ['value' => $marker->getXCoord()]])
             ->add('y_coord', HiddenType::class, ['attr' => ['value' => $marker->getYCoord()]])
             ->add('name', TextType::class, ['attr' => ['value' => $marker->getName()]])
-            ->add('url', ChoiceType::class, [
-                'label' => "Assigner un event",
-                'attr' => ['class' => 'form-input'],
-                'choices' => $this->getEventChoices(),
-            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Mettre à jour le marqueur',
             ])
@@ -222,7 +212,6 @@ class MarkerControlleur extends AbstractController
             $marker->setXCoord($form->get('x_coord')->getData());
             $marker->setYCoord($form->get('y_coord')->getData());
             $marker->setName($form->get('name')->getData());
-            $marker->setUrl($form->get('url')->getData());
             dump($form->getData());
 
             // Save the changes to the database

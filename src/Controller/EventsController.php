@@ -136,6 +136,7 @@ class EventsController extends AbstractController
 
                     // Add a success flash message
                     $this->addFlash('successDelete', 'Marker deleted successfully!');
+                    return $this->redirectToRoute("events_menu");
                 } catch (\Exception $e) {
                     // In case of an error, add a danger flash message
                     $this->addFlash('dangerDelete', 'Error deleting Marker: ' . $e->getMessage());
@@ -173,7 +174,7 @@ class EventsController extends AbstractController
 
 
         //il faut retourner cette page
-        return $this->render('events/show.html.twig', ["id" => $id, "events" => $events]);
+        return $this->render('events/region_show.html.twig', ["id" => $id, "events" => $events]);
     }
 
     public function getEventChoices()
