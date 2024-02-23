@@ -2,6 +2,20 @@
   background-color: rgb(255 181 38);
   position: absolute;
 
+  &_image{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+
+    &_img{
+      margin: 5px;
+      justify-content: center;
+      width: 100%;
+      border-radius: 50px 0;
+    }
+  }
+
   &_content{
     top:25%;
     margin-top:-10px;
@@ -44,10 +58,17 @@
       height: 80%;
       display: flex;
 
+      & a{
+        height: 100%;
+        width: 97%;
+        overflow: hidden;
+        display: flex;
+      }
+
       & img{
         margin: 5px;
         justify-content: center;
-        width: 95%;
+        width: 100%;
         border-radius: 50px 0;
       }
 

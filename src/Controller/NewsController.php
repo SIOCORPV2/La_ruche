@@ -176,6 +176,8 @@ class NewsController extends AbstractController
         return $this->render('news/show.html.twig', ["name" => $name, "new" => $new]);
     }
 
+
+
     public function getNewsChoices()
     {
         $news = $this->entityManager->getRepository(News::class)->findAll();

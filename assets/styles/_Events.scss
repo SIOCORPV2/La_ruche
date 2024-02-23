@@ -1,10 +1,18 @@
 .Events{
   min-height: 70vh;
   position: relative;
-  padding-top: 120px;
+  padding:140px 20% 400px 20%;
   background-color: rgb(255 181 38);
   font-size: 22px;
   & h1{
-    font-size: 40px;
+    font-size: 50px;
+    margin-bottom: 30px;
+    }
+  & hn{
+    font-size: 35px;
+
+    }
+  & h2{
+    font-size: 35px;
     }
 }

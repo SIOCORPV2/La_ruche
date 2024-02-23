@@ -21,15 +21,29 @@
         </nav>
     </div>
     <section class="Events">
-        <h1>Events</h1>
+        <h1>Événements dans {{ region }}</h1>
 
-        {% for event in events %}
-            {% if event.idRegion == id %}
-                {{ event.title }}
-                {{ event.description | raw }}
-                <br>
-            {% endif %}
+        <br>
+
+        {% set conditionMet = false %}
+
+        {% for marker in markers %}
+            {% for event in events %}
+
+                {% if id == marker.regionid and marker.id == event.idMarker %}
+                        {% set conditionMet = true %}
+                        {{ event.title }}
+                        {{ event.description|raw }}
+                        {{ event.location }}
+                        {{ event.date|date("m/d/Y") }}
+                        <br>
+                {% endif %}
+            {% endfor %}
         {% endfor %}
+        {% if not conditionMet %}
+            Il n'y a pas d'événement à cet endroit
+            <br>
+        {% endif %}
 
 
         <svg class="custom-shape-divider-bottom-1707320132" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

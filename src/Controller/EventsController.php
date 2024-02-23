@@ -159,11 +159,14 @@ class EventsController extends AbstractController
     public function show($name):Response{
 
         $repository = $this->entityManager->getRepository(Events::class);
-        $event = $repository->findOneBy(['title' => $name]);
+        $events = $repository->findAll();
+        $repositoryMarker = $this->entityManager->getRepository(Marker::class);
+        $marker = $repositoryMarker->findOneBy(["id" => $name]);
+
 
 
         //il faut retourner cette page
-        return $this->render('events/show.html.twig', ["name" => $name, "event" => $event]);
+        return $this->render('events/show.html.twig', ["name" => $name, "events" => $events, "marker" =>  $marker]);
     }
 
     #[Route(path: '/event/region/{id}', name: 'event_region')]
@@ -171,10 +174,19 @@ class EventsController extends AbstractController
 
         $repository = $this->entityManager->getRepository(Events::class);
         $events = $repository->findAll();
-
+        $repositoryMarker = $this->entityManager->getRepository(Marker::class);
+        $markers = $repositoryMarker->findAll();
+        $region = "inconnu";
+        if($id == 1){
+            $region = "l'Aisne";
+        }elseif ($id == 2){
+            $region = "l'Oise";
+        }elseif ($id == 3){
+            $region = "la Somme";
+        }
 
         //il faut retourner cette page
-        return $this->render('events/region_show.html.twig', ["id" => $id, "events" => $events]);
+        return $this->render('events/region_show.html.twig', ["id" => $id, "events" => $events, "markers" => $markers, "region" => $region]);
     }
 
     public function getEventChoices()

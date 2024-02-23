@@ -18,7 +18,7 @@
             </div>
             <div class="Navbar_droite">
                 <a href="#">Ateliers</a>
-                <a href="#">Ludothèques</a>
+                <a href="#ludotheque">Ludothèques</a>
                 <a href="#">Partenaires</a>
             </div>
         </nav>
@@ -34,11 +34,13 @@
 
                         <div class="News_new">
                             <div class="News_new_image">
+                                <a href="/News/{{ new.title }}">
                                 {% if new.image is null %}
                                     <img src="{{ asset('images/image_illustration.png') }}">
                                 {% else %}
                                     <img src="{{ new.image }}">
                                 {% endif %}
+                                </a>
                             </div>
                             <div class="News_new_title">
                                 {{ new.title }}
@@ -70,11 +72,13 @@
 
                                 <div class="card-image">
                                     <div class="News-temp-new-image">
-                                        {% if new.image is null %}
-                                            <img src="{{ asset('images/image_illustration.png') }}">
-                                        {% else %}
-                                            <img src="{{ new.image }}">
-                                        {% endif %}
+                                        <a href="/News/{{ new.title }}" class="News_image">
+                                            {% if new.image is null %}
+                                                <img class="News_image_img" src="{{ asset('images/image_illustration.png') }}">
+                                            {% else %}
+                                                <img class="News_image_img" src="{{ new.image }}">
+                                            {% endif %}
+                                        </a>
                                     </div>
                             </div>
 
@@ -121,7 +125,7 @@
                                             {% set xCoord = marker.x_coord %}
                                             {% set yCoord = marker.y_coord %}
                                             {% set name = marker.name %}
-                                            {% set url = "https://127.0.0.1:8000/event/#{marker.url}" %}
+                                            {% set url = "https://127.0.0.1:8000/event/#{marker.id}" %}
 
                                             {# Assuming (0,0) is at the top left, adjust yCoord for the top position #}
                                             {% set marginLeft = xCoord ~ '%' %}
@@ -234,7 +238,7 @@
         </div>
     </div>
 
-    <section class="Ludotheque">
+    <section id="ludotheque" class="Ludotheque">
         <h1>Ludothèques</h1>
         <p>Lorem ipsum dolor sit amet.
             Vel dolore culpa non quibusdam animi et sunt impedit quo dignissimos autem et corporis quas sed temporibus ducimus
